@@ -1,0 +1,26 @@
+languageCode = "en-us"
+
+baseURL = 'http://libcsp.com'
+title = 'Libcsp'
+theme = 'hugo-book'
+
+disablePathToLower = true
+enableGitInfo = false
+
+[languages]
+[languages.en]
+  languageName = 'English'
+  contentDir = 'content'
+  weight = 1
+
+[menu]
+[[menu.after]]
+  name = "Github"
+  url = "https://github.com/shiyanhui/libcsp"
+
+[params]
+  BookToC = true
+  BookSection = '*'
+  BookDateFormat = 'Jan 2, 2006'
+  BookSearch = false
+  BookComments = false
