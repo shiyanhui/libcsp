@@ -5,7 +5,7 @@ title: Tutorial
 
 ## Overview
 
-In this tutorial we will write a stupid exmaple in which we calculate the sum of two
+In this tutorial we will write a stupid example in which we calculate the sum of two
 numbers and print it.
 
 ## Basic version
@@ -64,13 +64,13 @@ There are many new things. Don't worry, let's review it line by line.
 In the first line, we defined the macro `csp_without_prefix`. With it we can use
 the libcsp's APIs without the prefix `csp_`.
 
-In lines `6~7`, we declared and defined the a single-writer sigle-reader(that's
-what `ss` means) channel consistng of `int` elements. We marked this channel with
-lable `integer` to avoid naming conflicts with other declared channel(e.g. channel
+In lines `6~7`, we declared and defined the a single-writer single-reader(that's
+what `ss` means) channel consisting of `int` elements. We marked this channel with
+label `integer` to avoid naming conflicts with other declared channel(e.g. channel
 declared with `chan_declare(ss, int, num)`).
 
 In lines `9~11`, we defined the calculating function. It has a parameter `chn`, thus
-we can get the sum through the channel. The keyworkd `proc` is used to tell the
+we can get the sum through the channel. The keyword `proc` is used to tell the
 compiler not to inline the function. Libcsp relies on the `noinline`-ed task.
 
 In lines `14`, we created a new channel object. And in line `15` we created and
@@ -91,7 +91,7 @@ improve it? Let's review the async version code again, and we found that,
   finishes and thus it shouldn't be tried to be scheduled by the libcsp scheduler
   meanwhile .
 
-`libcsp` provides mechanism to sovle this, it's `sync`.  Below is the sync version
+`libcsp` provides mechanism to solve this, it's `sync`.  Below is the sync version
 solution.
 
 ```shell

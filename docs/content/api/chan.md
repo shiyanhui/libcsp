@@ -124,7 +124,7 @@ csp_chan_push(chn, 1024);
 `csp_chan_try_pop(chn, item)` tries to pop an item from the channel.
 
 - `chn`: The channel.
-- `item`: The place to put the poped item.
+- `item`: The place to put the popped item.
 
 It will return `true` if success, otherwise `false`.
 
@@ -144,7 +144,7 @@ if (csp_chan_try_pop(chn, &num)) {
 successes.
 
 - `chn`: The channel.
-- `item`: The place to put the poped item.
+- `item`: The place to put the popped item.
 
 Example:
 
@@ -196,10 +196,10 @@ csp_chan_pushm(chn, nums, sizeof(nums)/sizeof(int));
 `csp_chan_try_popm(chn, items, n)` tries to pop multiple items from the channel.
 
 - `chn`: The channel.
-- `items`: The place to put the poped items.
+- `items`: The place to put the popped items.
 - `n`: The capacity of the `items`.
 
-It will return the number of items poped.
+It will return the number of items popped.
 
 Example:
 
@@ -216,7 +216,7 @@ printf("poped %ld numbers\n", n);
 it successes.
 
 - `chn`: The channel.
-- `items`: The place to put the poped items.
+- `items`: The place to put the popped items.
 - `n`: The number of items we want to pop.
 
 Example:
