@@ -40,7 +40,7 @@ gcc -o program program.o $(WORKING_DIR)/config.c -lcsp -pthread
 
 ## Libcsp CLI
 
-Libcsp CLI `cspcli` is mainly used to analyze the ouputs of libcsp plugin and
+Libcsp CLI `cspcli` is mainly used to analyze the outputs of libcsp plugin and
 generates the configuration file `config.c`.
 
 ```text
@@ -120,7 +120,7 @@ gcc -o program.o -c program.c -fplugin=libcsp -fplugin-arg-libcsp-working-dir=./
 
 ## Libcsp library
 
-Libcsp libaray provides the high performance runtime scheduler and related APIs
+Libcsp library provides the high performance runtime scheduler and related APIs
 to make your programs concurrent.
 
 [Go to see](/api) more details about the API.

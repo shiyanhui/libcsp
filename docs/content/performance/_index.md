@@ -51,7 +51,7 @@ the equivalent golang function.
 - Go: v1.14
 - GCC: v8.3.0
 
-## Bechmark
+## Benchmark
 
 Now compute `sum(0, 10000000)` for `10` rounds and print the spent time per
 round in seconds.

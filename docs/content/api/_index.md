@@ -5,7 +5,7 @@ title: API
 
 ## Overview
 
-`Libcsp` exports apis listed below which you can use directly in your project.
+`Libcsp` exports APIs listed below which you can use directly in your project.
 
 ## Index
 

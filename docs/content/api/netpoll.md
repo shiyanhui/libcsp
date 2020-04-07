@@ -38,7 +38,7 @@ for the full example.
 ---
 
 `csp_netpoll_register` registers `fd` to the netpoll so that the netpoll can
-monitor io events releated to the `fd`.
+monitor io events related to the `fd`.
 
 - `fd`: The file descriptor to register.
 
