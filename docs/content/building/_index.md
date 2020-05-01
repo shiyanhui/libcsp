@@ -77,8 +77,8 @@ Commands:
       --default-stack-size:
         The default stack size for an unknown function. Default is 2KB.
       --cpu-cores:
-        The number of cpu cores on which libcsp will run. Default is max
-        cpu cores.
+        The number of CPU cores on which libcsp will run. Default is max
+        CPU cores.
       --max-threads:
         The max threads libcsp can create. Default is 1024.
       --max-procs-hint:

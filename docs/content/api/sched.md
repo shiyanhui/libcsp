@@ -91,7 +91,7 @@ csp_block({
 ### **csp_yield()**
 ---
 
-`csp_yield()` gives up current cpu and schedules to run other processes. It's
+`csp_yield()` gives up current CPU and schedules to run other processes. It's
 something like `runtime.Gosched()` in go.
 
 Example:

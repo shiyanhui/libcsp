@@ -9,7 +9,7 @@ type: docs
 
 ## Features
 
-- Multiple cpu cores supported.
+- Multiple CPU cores supported.
 - High performance scheduler.
 - Stack size statically analyzed in compile time.
 - Lock-free channel.

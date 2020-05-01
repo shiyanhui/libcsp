@@ -33,7 +33,7 @@ proc void choose(chan_t(int) *chn1, chan_t(char) *chn2) {
 
   /* We can make the simulation of `select` in golang. The only drawback of this
    * simulation is the priority. We always check the channels by the order of
-   * which we write in the source code. But at most cases, it's enough. */
+   * which we write in the source code. But it's enough in most cases. */
   while (true) {
     bool ok = false;
 

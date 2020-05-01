@@ -80,7 +80,7 @@ The result is 50000005000000, ran 10 rounds, 8.029795 seconds per round.
 
 Below is the result in table:
 
-| CPU CORES | Time(s) libcsp/go    | Memory(%) libcsp/go |
+| CPU Cores | Time(s) libcsp/go    | Memory(%) libcsp/go |
 | :-------- | :------------------- | ------------------- |
 | 1         | 3.047471 / 31.145248 | 0.2 / 27.8          |
 | 2         | 1.579780 / 17.112188 | 0.5 / 29.4          |
