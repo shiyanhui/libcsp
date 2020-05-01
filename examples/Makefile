@@ -2,7 +2,7 @@ CFLAGS := -Wall -O3
 WORKING_DIR := build
 
 TARGETS := async chan infinity long_params mutex netpoll producer_consumer \
-	sleep sync timer
+	select sleep sync timer
 
 EXAMPLE ?= sync
 
