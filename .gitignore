@@ -18,6 +18,7 @@ ltmain.sh
 libtool
 stamp-h1
 install-sh
+/Makefile
 .dirstamp
 .DS_Store
 
