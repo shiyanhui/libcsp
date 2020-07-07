@@ -80,6 +80,19 @@ bool csp_timer_heap_init(csp_timer_heap_t *heap, size_t pid) {
   return heap->procs != NULL;
 }
 
+/* Fix the heap by shifting up the element. */
+void csp_timer_heap_shift_up(csp_timer_heap_t *heap, int64_t idx) {
+  while (idx > 0) {
+    int64_t father = (idx - 1) >> 1;
+    if (csp_timer_heap_lte(heap, father, idx)) {
+      return;
+    }
+    csp_swap(heap->procs[idx], heap->procs[father]);
+    csp_swap(heap->procs[idx]->timer.idx, heap->procs[father]->timer.idx);
+    idx = father;
+  }
+}
+
 /* Put a timer to the heap. */
 void csp_timer_heap_put(csp_timer_heap_t *heap, csp_proc_t *proc) {
   csp_mutex_lock(&heap->mutex);
@@ -100,45 +113,42 @@ void csp_timer_heap_put(csp_timer_heap_t *heap, csp_proc_t *proc) {
 
   heap->procs[heap->len] = proc;
   proc->timer.idx = heap->len++;
-
-  int64_t son = proc->timer.idx, father;
-  while (son > 0) {
-    father = (son - 1) >> 1;
-    if (csp_timer_heap_lte(heap, father, son)) {
-      break;
-    }
-    csp_swap(heap->procs[son], heap->procs[father]);
-    csp_swap(heap->procs[son]->timer.idx, heap->procs[father]->timer.idx);
-    son = father;
-  }
+  csp_timer_heap_shift_up(heap, proc->timer.idx);
 
   csp_mutex_unlock(&heap->mutex);
 }
 
 /* Delete a timer from the heap. The caller should take control of the mutex. */
 void csp_timer_heap_del(csp_timer_heap_t *heap, csp_proc_t *proc) {
-  int64_t father = proc->timer.idx;
-  if (father == --heap->len) {
+  int64_t idx = proc->timer.idx;
+  if (idx == --heap->len) {
     return;
   }
 
-  heap->procs[father] = heap->procs[heap->len];
-  heap->procs[father]->timer.idx = father;
+  heap->procs[idx] = heap->procs[heap->len];
+  heap->procs[idx]->timer.idx = idx;
 
+  /* If the timer is smaller than its father, we should shift it up. */
+  if (idx > 0 && csp_timer_heap_lte(heap, idx, (idx - 1) >> 1)) {
+    csp_timer_heap_shift_up(heap, idx);
+    return;
+  }
+
+  /* Otherwise we should shift it down. */
   while (true) {
-    int64_t son = (father << 1) + 1;
+    int64_t son = (idx << 1) + 1;
     if (son >= heap->len) {
       break;
     }
     if (son + 1 < heap->len && csp_timer_heap_lte(heap, son + 1, son)) {
       son++;
     }
-    if (csp_timer_heap_lte(heap, father, son)) {
+    if (csp_timer_heap_lte(heap, idx, son)) {
       break;
     }
-    csp_swap(heap->procs[father], heap->procs[son]);
-    csp_swap(heap->procs[father]->timer.idx, heap->procs[son]->timer.idx);
-    father = son;
+    csp_swap(heap->procs[idx], heap->procs[son]);
+    csp_swap(heap->procs[idx]->timer.idx, heap->procs[son]->timer.idx);
+    idx = son;
   }
 }
 
