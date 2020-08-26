@@ -58,7 +58,8 @@ test_rbtree
 test_runq
 test_timer
 
-benchmark_sum
+benchmark_sum_libcsp
+benchmark_sum_thread
 benchmark_sum_go
 
 docs/data

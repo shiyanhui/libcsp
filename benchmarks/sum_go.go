@@ -24,6 +24,7 @@ import (
 )
 
 const N = 10
+const MAX = 10000000
 
 func sum(low, high int64, result *int64) {
 	if low == high {
@@ -57,7 +58,7 @@ func main() {
 
 	start := time.Now()
 	for i := 0; i < N; i++ {
-		sum(0, 10000000, &result)
+		sum(0, MAX, &result)
 	}
 	duration := time.Since(start)
 

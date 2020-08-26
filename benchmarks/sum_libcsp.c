@@ -17,10 +17,11 @@
 
 #define csp_without_prefix
 
-#include <stdio.h>
 #include <libcsp/csp.h>
+#include <stdio.h>
 
-#define N 10
+#define N   10
+#define MAX 10000000
 
 proc void sum(int64_t low, int64_t high, int64_t *result) {
   if (low == high) {
@@ -38,7 +39,7 @@ int main(void) {
 
   start = timer_now();
   for (int i = 0; i < N; i++) {
-    sum(0, 10000000, &result);
+    sum(0, MAX, &result);
   }
   end = timer_now();
 

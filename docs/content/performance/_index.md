@@ -40,7 +40,7 @@ proc void sum(int low, int high, int *result) {
 }
 ```
 
-Go to [sum.go](https://github.com/shiyanhui/libcsp/tree/master/benchmarks/sum.go) for
+Go to [sum.go](https://github.com/shiyanhui/libcsp/tree/master/benchmarks/sum_go.go) for
 the equivalent golang function.
 
 ## Environment
@@ -57,7 +57,7 @@ Now compute `sum(0, 10000000)` for `10` rounds and print the spent time per
 round in seconds.
 
 ```shell
-$ for i in $(seq 8); do make clean && make CC=gcc-8 CPU_CORES=${i} benchmark_sum; done
+$ for i in $(seq 8); do make clean && make CC=gcc-8 CPU_CORES=${i} benchmark_sum_libcsp; done
 The result is 50000005000000, ran 10 rounds, 3.047471 seconds per round.
 The result is 50000005000000, ran 10 rounds, 1.579780 seconds per round.
 The result is 50000005000000, ran 10 rounds, 1.082895 seconds per round.
