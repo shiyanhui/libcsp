@@ -25,6 +25,28 @@
 #include "rbq.h"
 #include "rbtree.h"
 
+/*
+ * mem.c implements a virtual memory manager.
+ *
+ * The x86_64 CPU with 4-level paging uses 48 bits(16:9:9:9:9:12). Linux uses
+ * the 48th bit to distinguish user space and kernel space. So we have total
+ * 47-bits virtual user space to manage.
+ *
+ * We make the page size the same as the system, i.e. 4KB. And to reduce the
+ * meta information, we use the same strategy as the system - paging which has
+ * three levels. The first level is cpu_id, which takes 12 bytes, thus each CPU
+ * can occupy 64GB and libcsp can support 2048 CPUs at most. The reason why we
+ * make each CPU to take a continuous segment memory is that we can use a
+ * lock-free algorithm to malloc and free memory in it. The second level is the
+ * l1 level(Page Directory) which takes 8 bytes and the third level(Page Table)
+ * which takes 16 bytes. The layout is,
+ *
+ * ← High bits                                                    Low bits →
+ * +-----------------------------------------------------------------------+
+ * | reversed(16B) | user(1B) | cpu_id(12B) | l1(8B) | l2(16B) | page(12B) |
+ * +-----------------------------------------------------------------------+
+ */
+
 #define csp_mem_heap_size_exp     36
 #define csp_mem_heap_size         (1L << csp_mem_heap_size_exp)
 #define csp_mem_heap_offset(heap, addr) ((uintptr_t)(addr) - (heap)->start)
