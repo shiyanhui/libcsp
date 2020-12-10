@@ -83,7 +83,7 @@ void on_finish_parse_function(void *gcc_data, void *user_data) {
 
 void on_all_passes_start(void *gcc_data, void *user_data) {
   /* Silence all "stack usage computation not supported for this target"
-   * warnnings. */
+   * warnings. */
   current_function_static_stack_size = 0;
 }
 
