@@ -34,17 +34,17 @@
  *
  * We make the page size the same as the system, i.e. 4KB. And to reduce the
  * meta information, we use the same strategy as the system - paging which has
- * three levels. The first level is cpu_id, which takes 12 bytes, thus each CPU
+ * three levels. The first level is cpu_id, which takes 11 bits, thus each CPU
  * can occupy 64GB and libcsp can support 2048 CPUs at most. The reason why we
  * make each CPU to take a continuous segment memory is that we can use a
  * lock-free algorithm to malloc and free memory in it. The second level is the
- * l1 level(Page Directory) which takes 8 bytes and the third level(Page Table)
- * which takes 16 bytes. The layout is,
+ * l1 level(Page Directory) which takes 8 bits and the third level(Page Table)
+ * which takes 16 bits. The 64-bits address space layout is,
  *
- * ← High bits                                                    Low bits →
- * +-----------------------------------------------------------------------+
- * | reversed(16B) | user(1B) | cpu_id(12B) | l1(8B) | l2(16B) | page(12B) |
- * +-----------------------------------------------------------------------+
+ * ← High bits                                       Low bits →
+ * +-----------------------------------------------------------+
+ * | reversed:16 | user:1 | cpu_id:11 | l1:8 | l2:16 | page:12 |
+ * +-----------------------------------------------------------+
  */
 
 #define csp_mem_heap_size_exp     36
