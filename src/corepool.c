@@ -29,6 +29,8 @@ extern csp_core_t *csp_core_new(
 extern void csp_core_destroy(csp_core_t *core);
 static void csp_core_pool_destroy(csp_core_pool_t *pool);
 
+csp_core_pools_t csp_core_pools;
+
 static csp_core_pool_t *
 csp_core_pool_new(int pid, size_t grunq_cap_exp, size_t cores_per_cpu) {
   csp_core_pool_t *pool = (csp_core_pool_t *)calloc(1, sizeof(csp_core_pool_t));

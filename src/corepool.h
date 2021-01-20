@@ -36,7 +36,12 @@ typedef struct {
   csp_mutex_t mutex;
 } csp_core_pool_t;
 
-struct { size_t len; csp_core_pool_t **pools; } csp_core_pools;
+typedef struct {
+  size_t len;
+  csp_core_pool_t **pools;
+} csp_core_pools_t;
+
+extern csp_core_pools_t csp_core_pools;
 
 #ifdef __cplusplus
 }
