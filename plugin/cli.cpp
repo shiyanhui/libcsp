@@ -79,7 +79,7 @@ const std::string cli_usage = (
   "    Display the cspcli version.                                           \n"
 );
 
-const std::string cli_version     = "0.0.1";
+const std::string cli_version     = "0.0.2";
 
 const std::string cli_cmd_init    = "init";
 const std::string cli_cmd_analyze = "analyze";
