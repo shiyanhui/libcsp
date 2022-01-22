@@ -16,7 +16,7 @@
 AC_PREREQ([2.69])
 
 AC_INIT([libcsp], [m4_esyscmd_s([cat VERSION])],
-        [https://github.com/libcsp/issues], [libcsp], [https://libcsp.com])
+        [https://github.com/libcsp/issues], [libcsp], [https://libcsp.dev])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
 AC_DISABLE_STATIC

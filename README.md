@@ -13,7 +13,7 @@
 
 ## Documentation
 
-Go to [https://libcsp.com](https://libcsp.com) for the documentation.
+Go to [https://libcsp.dev](https://libcsp.dev) for the documentation.
 
 ## License
 

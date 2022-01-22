@@ -1,6 +1,6 @@
 languageCode = "en-us"
 
-baseURL = 'http://libcsp.com'
+baseURL = 'https://libcsp.dev'
 title = 'Libcsp'
 theme = 'hugo-book'
 
