@@ -43,7 +43,7 @@ $ make
 $ sudo make install
 ```
 
-Libcsp provides several options for `./congiure`:
+Libcsp provides several options for `./configure`:
 
 - `--enable-debug`: It will disable the gcc optimization and add debug information if enabled.
 - `--enable-valgrind`: It will add support for `valgrind` if enabled.
