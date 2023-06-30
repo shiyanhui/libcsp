@@ -21,13 +21,13 @@ writers and readers,
 - [csp_chan_new(I)](#csp_chan_newi)
 - [csp_chan_try_push(chn, item)](#csp_chan_try_pushchn-item)
 - [csp_chan_push(chn, item)](#csp_chan_pushchn-item)
-- [csp_chan_try_pop(chn, item)](/#csp_chan_try_popchn-item)
+- [csp_chan_try_pop(chn, item)](#csp_chan_try_popchn-item)
 - [csp_chan_pop(chn, item)](#csp_chan_popchn-item)
 - [csp_chan_try_pushm(chn, items, n)](#csp_chan_try_pushmchn-items-n)
 - [csp_chan_pushm(chn, items, n)](#csp_chan_pushmchn-items-n)
 - [csp_chan_try_popm(chn, items, n)](#csp_chan_try_popmchn-items-n)
 - [csp_chan_popm(chn, items, n)](#csp_chan_popmchn-items-n)
-- [csp_chan_destroy(chn)](#csp_chan_destroyc)
+- [csp_chan_destroy(chn)](#csp_chan_destroychn)
 
 ### **csp_chan_declare(K, T, I)**
 ---
